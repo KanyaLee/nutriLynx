@@ -1,0 +1,19 @@
+.navigationBar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 1rem;
+}
+#navigationBar-item {
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#navigationBar-item a {
+    color: #352f36; 
+    text-decoration: none; 
+    font-family: 'Inter'; 
+    font-size:  16px; 
+}

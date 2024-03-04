@@ -9,28 +9,36 @@ import MainPage from './components/MainPage/MainPage'; //
 import VitaminPage from './components/VitaminPage/VitaminPage'; // 
 import HealthWellbeingPage from './components/HealthWellbeingPage/HealthWellbeingPage';// 
 import Blog from './components/Blog/Blog'; // 
-import NotFound from './components/NotFound/NotFound'; // 
+// import NotFound from './components/NotFound/NotFound'; // 
 import Quiz from './components/Quiz/Quiz'; //
+import { AuthProvider } from './contexts/AuthContext';
+import Cart from './components/CartComp/Cart';
+import SignUp from './components/User/SignUp';
+
 
 
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <HeaderBar />
-        <NavigationBar />
-        <Routes> 
-          <Route path="/" exact component={MainPage} />
-          <Route path="/vitamins" exact component={VitaminPage} />
-          <Route path="/health-wellbeing" exact component={HealthWellbeingPage} />
-          <Route path="/blog" exact component={Blog} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <HeaderBar />
+          <NavigationBar />
+          <Routes> 
+            <Route path="/" element={<MainPage />} />
+            <Route path="/vitamins" element={<VitaminPage />} />
+            <Route path="/health-wellbeing" element={<HealthWellbeingPage />} />
+            <Route path="/blog" element={<Blog/>} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/signup" element={<SignUp />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
