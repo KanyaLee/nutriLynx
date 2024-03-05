@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {supabase} from './client'
 import { Link } from 'react-router-dom'
+import './User.css';
 
 
 export default function SignUp() {
@@ -42,12 +43,14 @@ export default function SignUp() {
       }
     
     return (
-        <div>
-            <h1>Sign up</h1>
-            <form onSubmit={handleSubmit}>
+        <div className='signup-container'>
+            <h1>Create an Account</h1>
+            <p>Build your healthy routine with NutriLynx</p>
+            <form id="signup-form"onSubmit={handleSubmit}>
                 <div>
                     <input 
-                    placeholder='full name'
+                    id="name"
+                    placeholder='Name'
                     name='fullName'
                     type='text'
                     onChange={handleChange}
@@ -55,7 +58,8 @@ export default function SignUp() {
                 </div>
                 <div>
                     <input 
-                        placeholder='email'
+                        id="email"
+                        placeholder='Email'
                         name='email'
                         type='email'
                         onChange={handleChange}
@@ -63,22 +67,30 @@ export default function SignUp() {
                 </div>
                 <div>
                     <input 
-                    placeholder='password'
+                    id="password"
+                    placeholder='Password'
                     name='password'
                     type='password'
                     onChange={handleChange}
                     required/>
                 </div>
+
+                <div class="password-requirements">
+                    <p>Password strength: <span id="password-strength">weak</span></p>
+                    <p>Cannot contain your name or email address</p>
+                    <p>At least 8 characters</p>
+                    <p>Contains a number or symbol</p>
+                </div>
+
                 <div>
                     <button type="submit">Sign Up</button>
                 </div>
                 <div>
                     <p>Already have an account? <Link to="/user/login">Log in</Link></p>
                 </div>
-                <div>
-                    <p>Sign Up with google</p>
 
-                </div>
+                {/* <div class="divider">or</div> */}
+
             </form>
         </div>
 

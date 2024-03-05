@@ -1,0 +1,59 @@
+.signup-container {
+    display:block;
+    padding: 20px;
+    background-color:#fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center; 
+}
+
+.signup-container h1 {
+    margin-bottom: 30px;
+    color: #151414;
+}
+
+.signup-container p {
+    font-size: 14px;
+    color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 75%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.password-requirements {
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.password-requirements p {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0;
+}
+
+
+.password-requirements span#password-strength {
+    color: #e74c3c; /* Red for weak, you can change it based on strength */
+}
