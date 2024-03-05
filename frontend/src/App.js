@@ -32,7 +32,7 @@ function App() {
             <Route path="/blog" element={<Blog/>} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/signup" element={<SignUp />} />
+            <Route path="/user/signup" element={<SignUp />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
           <Footer />

@@ -1,33 +1,54 @@
 import React, {useState, useEffect} from 'react';
 import {supabase} from './client'
+import { Link } from 'react-router-dom'
+
 
 export default function SignUp() {
 
-    const [formData, setFormData] = useState({ FullName: '', Email:'', Password: '' });
+    const [formData, setFormData] = useState({ fullName: '', email:'', password: '' });
     
     console.log(formData)
     // Handles input change for all inputs
     
-    
-    const handleChange = (e) => {
+    function handleChange(e) {
         setFormData((prevFormData) => {
             return {
                 ...prevFormData,
                 [e.target.name]: e.target.value
             }
         })
-            
-        
     }
-
+    // Handles form submit
+    async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+          const { user, error } = await supabase.auth.signUp({
+            email: formData.email,
+            password: formData.password,
+          }, {
+            data: {
+              fullName: formData.fullName,
+            }
+          });
+      
+          if (error) throw error;
+          
+          console.log(user);
+          alert('Check your email for the confirmation link');
+        } catch (error) {
+          console.error('Sign up error:', error);
+          alert(error.message);
+        }
+      }
+    
     return (
         <div>
             <h1>Sign up</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <input 
                     placeholder='full name'
-                    name='FullName'
+                    name='fullName'
                     type='text'
                     onChange={handleChange}
                     required/>
@@ -35,7 +56,7 @@ export default function SignUp() {
                 <div>
                     <input 
                         placeholder='email'
-                        name='Email'
+                        name='email'
                         type='email'
                         onChange={handleChange}
                         required/>
@@ -43,7 +64,7 @@ export default function SignUp() {
                 <div>
                     <input 
                     placeholder='password'
-                    name='Password'
+                    name='password'
                     type='password'
                     onChange={handleChange}
                     required/>
@@ -52,7 +73,7 @@ export default function SignUp() {
                     <button type="submit">Sign Up</button>
                 </div>
                 <div>
-                    <p>Already have an account? <a href="/signin">Sign In</a></p>
+                    <p>Already have an account? <Link to="/user/login">Log in</Link></p>
                 </div>
                 <div>
                     <p>Sign Up with google</p>
@@ -64,13 +85,3 @@ export default function SignUp() {
     )
 }
 
-// Path: frontend/src/components/User/SignIn.js
-// Compare this snippet from frontend/src/components/User/SignIn.js:
-// import React from 'react';
-// 
-// const SignIn = () => {
-//     // ...       
-//     return (
-//         <div className='sign-in-container'>
-//             <img src={Logo} alt='logo' />
-//             <h2>Welcome back!</h2>

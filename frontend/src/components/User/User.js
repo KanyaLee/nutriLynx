@@ -35,7 +35,7 @@ const User = () => {
                         <Link to='/user/signup'>
                             Sign Up
                         </Link>
-                        <Link to='/user/signin'>Log in</Link>
+                        <Link to='/user/login'>Log in</Link>
                     </div>
                 )
             )}
