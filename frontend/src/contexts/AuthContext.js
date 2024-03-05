@@ -3,8 +3,10 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user,setUser] = useState(null);
 
-    const login = () => {
+    const login = (userData) => {
+        setUser(userData);
         setIsLoggedIn(true);
     }
 
@@ -19,7 +21,7 @@ export const AuthProvider = ({ children }) => {
     );
 
 }
-export const useAuth = () => { useContext(AuthContext)};
+export const useAuth = () => useContext(AuthContext);
  
 export { AuthContext };
 

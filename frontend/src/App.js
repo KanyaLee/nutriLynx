@@ -14,8 +14,7 @@ import Quiz from './components/Quiz/Quiz'; //
 import { AuthProvider } from './contexts/AuthContext';
 import Cart from './components/CartComp/Cart';
 import SignUp from './components/User/SignUp';
-
-
+import Login from './components/User/Login';
 
 
 function App() {
@@ -33,6 +32,7 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/user/signup" element={<SignUp />} />
+            <Route path="/user/login" element={<Login />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
           <Footer />

@@ -28,7 +28,11 @@ const User = () => {
                     <div className='dropdown'>
                         <Link to='/user/profile'>Profile</Link>
                         <Link to='/user/orders'>Orders</Link>
-                        <Link to='/user/logout' onClick={logout}>Logout</Link>
+                        <button onClick={()=> {
+                            logout();
+                            setIsDropdownVisible(false);
+                        }}>Log out</button>
+                        {/* <Link to='/user/logout' onClick={logout}>Logout</Link> */}
                     </div>
                 ) : (
                     <div className='dropdown'>
